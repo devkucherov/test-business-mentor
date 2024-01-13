@@ -1,9 +1,21 @@
 :root {
-	--font-main: 'Poppins', sans-serif;
-	--font-accent: 'Playfair Display', serif;
+	/* Fonts */
+	--font-main: 'SF UI Display', sans-serif;
+	// --font-accent: 'Playfair Display', serif;
 
-	--page-bg: #fff;
-	--text-color: #000;
-	--accent: #ac182c;
+	/* Colors */
+	--page-bg: #F3F7FB;
+	--tariffs-desc: #C3C8CF;
+	--accent: #E0B330;
+
+	--black: #0E0F11;
+	--white: #fff;
 
 }
+
+
+@mixin desctop-s {
+	@media (max-width: 1440px) {
+    @content;
+  }
+} 

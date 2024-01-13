@@ -1,0 +1,33 @@
+.tariffs {
+  padding: 100px 0;
+}
+
+.tariffs__desc {
+  margin-top: 48px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: var(--tariffs-desc);
+}
+
+.tariffs__title {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 56px;
+  font-weight: 600;
+}
+
+.tariffs__cards {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  // @include desctop-s {
+  //   grid-template-columns: 1fr;
+  // }
+}
+
+// .tariffs__card {
+// }
+

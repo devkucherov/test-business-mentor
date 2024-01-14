@@ -15,9 +15,13 @@ body {
   padding: 0 60px;
   margin: 0 auto;
 
-	@include desctop-s {
-		padding: 0 32px;
-	}
+  @include desctop-s {
+    padding: 0 32px;
+  }
+
+	@include phone {
+    padding: 0 16px;
+  }
 }
 
 .btn {
@@ -28,6 +32,14 @@ body {
   color: var(--white);
   background-color: var(--black);
   font-size: 16px;
-font-weight: 600;
-line-height: 120%;
+  font-weight: 600;
+  line-height: 120%;
+	border: 1px solid transparent;
+	transition: all .3s ease-in;
+
+	&:hover {
+		background-color: transparent;
+		color: var(--black);
+		border: 2px solid var(--black);
+	}
 }

@@ -1,7 +1,6 @@
 :root {
 	/* Fonts */
 	--font-main: 'SF UI Display', sans-serif;
-	// --font-accent: 'Playfair Display', serif;
 
 	/* Colors */
 	--page-bg: #F3F7FB;
@@ -11,11 +10,25 @@
 	--black: #0E0F11;
 	--white: #fff;
 
+	--gold-gradient: linear-gradient(#fff, #fff) padding-box, linear-gradient(#f5Ce5b, #fbee8800) border-box;
+	--gray-gradient: linear-gradient(#fff, #fff) padding-box, linear-gradient(#f3f7fb, #f3f7fb1a) border-box;
 }
 
 
 @mixin desctop-s {
-	@media (max-width: 1440px) {
+	@media (max-width: 1229px) {
+    @content;
+  }
+} 
+
+@mixin tablet {
+	@media (max-width: 1051px) {
+    @content;
+  }
+} 
+
+@mixin phone {
+	@media (max-width: 706px) {
     @content;
   }
 } 

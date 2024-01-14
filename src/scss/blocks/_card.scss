@@ -1,46 +1,88 @@
 .card {
-  // height: 769px;
   border-radius: 24px;
   background-color: var(--white);
   padding: 32px 12px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  border: 4px solid transparent;
 
-  &_gold {
+  &--gold {
     border: 4px solid #e0b330;
     position: relative;
 
     &::before {
       content: 'Лучший тариф';
       position: absolute;
-      top: -34px;
+      top: -35px;
       left: 50%;
       transform: translateX(-50%);
       padding: 6px 12px;
       border-radius: 16px 16px 0px 0px;
-      background: linear-gradient(180deg, #fff289 0%, #d2a41d 100%), #fff;
+      background: linear-gradient(180deg, #fff289 0%, #e0b330 100%), #fff;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 140%;
       color: var(--white);
+
+      @include tablet {
+        transform: none;
+        left: 36px;
+      }
+
+      @include phone {
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        line-height: 120%;
+      }
     }
   }
 
-  // @include desctop-s {
-  //   order: 2;
+  &--blue {
+    position: relative;
+  }
 
-  //   &_gold {
-  //     order: 0;
-  //   }
+  @include tablet {
+    order: 2;
+    padding: 12px 24px;
 
-  //   &_blue {
-  //     order: 1;
-  //   }
-  // }
+    display: grid;
+    grid-template-areas:
+      'header main'
+      'footer promo';
+    grid-template-columns: repeat(2, 1fr);
+
+    &--gold {
+      order: 0;
+    }
+
+    &--blue {
+      order: 1;
+    }
+  }
+
+  @include phone {
+    display: flex;
+    padding: 24px;
+  }
 }
 
 .card__header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  grid-area: header;
+
+  @include tablet {
+    align-items: start;
+    margin-top: 10px;
+  }
+
+  @include phone {
+    align-items: center;
+  }
 }
 
 .card__icon {
@@ -50,38 +92,53 @@
   justify-content: center;
   align-items: center;
 
-  &_gray {
+  &--gray {
+    background: var(--gray-gradient);
     padding: 0.5rem;
     border: 10px solid transparent;
     border-radius: 50%;
-    background: linear-gradient(to right, white, white),
-      linear-gradient(#f3f7fb, #fff);
-    background-clip: padding-box, border-box;
-    background-origin: padding-box, border-box;
   }
 
-  &_gold {
+  &--gold {
+    background: var(--gold-gradient);
     padding: 0.5rem;
     border: 10px solid transparent;
     border-radius: 50%;
-    background: linear-gradient(to right, white, white),
-      linear-gradient(#f5ce5b, #fff);
-    background-clip: padding-box, border-box;
-    background-origin: padding-box, border-box;
+  }
+
+  @include desctop-s {
+    width: 72px;
+    height: 72px;
   }
 }
 
 .card__title {
   margin-top: 20px;
-  font-size: clamp(20px, 1.01rem + 1.2vw, 32px);
+  font-size: 32px;
   font-weight: 600;
+
+  @include desctop-s {
+    font-size: 24px;
+  }
+
+  @include phone {
+    font-size: 20px;
+  }
 }
 
 .card__subtitle {
   margin-top: 8px;
   text-align: center;
   color: #8f959b;
-  font-size: clamp(14px, 0.835rem + 0.2vw, 16px);
+  font-size: 16px;
+
+  @include desctop-s {
+    font-size: 14px;
+  }
+
+  @include phone {
+    font-size: 14px;
+  }
 }
 
 .card__main {
@@ -89,66 +146,117 @@
   border-radius: 20px;
   background-color: var(--page-bg);
   text-align: center;
+  grid-area: main;
+  grid-column: 2/3;
+  grid-row: 1/3;
+  display: grid;
 
-  &_gold {
-    background: url(./../../img/gold-bg.png),
+  &--gold {
+    background: url(./../../img/gold-bg-2.png) no-repeat center,
       linear-gradient(180deg, #e0b330 0%, #fbee88 51.1%, #e0b330 100%);
+    background-size: cover;
+
+    @include tablet {
+      margin-bottom: 80px;
+    }
+
+    @include phone {
+      margin: 0;
+    }
+  }
+
+  &--blue {
+    @include tablet {
+      margin-bottom: 80px;
+      padding: 65px 24px 24px 24px;
+    }
+
+    @include phone {
+      padding: 32px 24px 24px 24px;
+      margin: 0;
+    }
   }
 }
 
 .card__price {
-  font-size: clamp(24px, 1.18rem + 1.6vw, 40px);
+  font-size: 40px;
   font-weight: 700;
   line-height: 120%;
 
-  &_gold {
+  &--gold {
     color: var(--white);
+  }
+
+  @include desctop-s {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  @include tablet {
+    align-self: end;
+  }
+
+  @include phone {
+    font-size: 24px;
   }
 }
 
 .card__period {
   margin-top: 8px;
   color: #8f959b;
-  font-size: clamp(14px, 0.835rem + 0.2vw, 16px);
+  font-size: 16px;
   line-height: 100%;
 
-  &_gold {
+  &--gold {
     color: var(--white);
+  }
+
+  @include desctop-s {
+    font-size: 14px;
   }
 }
 
 .card__btn {
   margin-top: 24px;
+
+  @include tablet {
+    align-self: end;
+  }
 }
 
 .card__promo {
-  // background-image: url(./../img/card-gold.png);
-  // background-size: contain;
-  // background-repeat: no-repeat;
-  // height: 72px;
   display: flex;
   justify-content: end;
   align-items: center;
   font-size: 24px;
   font-weight: 700;
   line-height: 110%;
-  text-transform: uppercase;
   color: var(--white);
   height: 72px;
   border-radius: 16px;
+  position: relative;
 
-  &_gold {
-    background: url(./../img/card-gold.svg) no-repeat, url(./../img/gold-bg.png), 
-    linear-gradient(180deg, #e0b330 0%, #fbee88 51.1%, #e0b330 100%);
+  &--gold {
+    background: url(./../img/card-gold.svg) no-repeat, url(./../img/gold-bg.png),
+      linear-gradient(180deg, #e0b330 0%, #fbee88 51.1%, #e0b330 100%);
   }
 
-  &_blue {
-    background: url(./../img/card-blue.svg) no-repeat, url(./../img/blue-bg.png), 
-    linear-gradient(180deg, #2557F6 0%, #5B82FF 51.1%, #2557F6 100%);
+  &--blue {
+    background: url(./../img/card-blue.svg) no-repeat, url(./../img/blue-bg.png),
+      linear-gradient(180deg, #2557f6 0%, #5b82ff 51.1%, #2557f6 100%);
+  }
+
+  @include tablet {
+    grid-area: promo;
+    align-self: end;
+  }
+
+  @include phone {
+    align-self: stretch;
   }
 }
 
-.card__hint {
+.card__hint-btn {
   background-image: url('../../img/question-icon-gold.svg');
   background-size: contain;
   background-repeat: no-repeat;
@@ -157,26 +265,67 @@
   margin-right: 20px;
   position: relative;
 
+  &:hover + .card__hint {
+    pointer-events: all;
+    opacity: 1;
+  }
 }
 
+.card__hint {
+  max-width: 278px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--black);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 140%;
+  box-shadow: 0px 10px 34px 0px rgba(0, 26, 52, 0.08);
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 75%;
+  transform: translate(0, 10%);
+  transition: all 0.2s ease-in;
+
+  &::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -9px;
+    right: 21px;
+    background-color: var(--black);
+    transform: rotate(-45deg);
+  }
+}
 
 .card__footer {
+  grid-area: footer;
 }
 
 .card__benefits-list {
   display: grid;
   gap: 12px;
   padding: 0 20px;
+
+  @include tablet {
+    padding: 0;
+  }
 }
 
 .card__benefits-item {
-  font-size: clamp(14px, 0.835rem + 0.2vw, 16px);
+  font-size: 16px;
   line-height: 140%;
   padding-left: 26px;
   background: url(./../img/confirm-icon.svg) no-repeat left top;
 
   &_special {
     display: flex;
+  }
+
+  @include desctop-s {
+    font-size: 14px;
   }
 }
 
@@ -196,3 +345,4 @@
     margin-left: -7px;
   }
 }
+

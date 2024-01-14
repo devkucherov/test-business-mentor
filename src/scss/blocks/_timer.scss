@@ -1,0 +1,50 @@
+.timer {
+  position: absolute;
+  top: 16px;
+
+  @include tablet {
+    top: 28px;
+    left: 54%;
+  }
+
+  @include phone {
+    top: 16px;
+    left: 16px;
+  }
+}
+
+.timer__items {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0px 8px;
+  border-radius: 1000px;
+  background:  rgba(240, 87, 77, 0.2);
+
+  &::before {
+    content: url(./../img/clock.svg);
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+}
+.timer__item {
+  color: #f24c41;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 140%;
+  position: relative;
+  min-width: 15px;
+  text-align: center;
+
+  &:not(:last-child)::after {
+    content: ':';
+    position: absolute;
+    right: -5px;
+  }
+
+  &:not(:last-child) {
+    margin-right: 7px;
+  }
+}

@@ -11,3 +11,7 @@ export function getTariff(cardSelector, titleSelector) {
 		cardBtn.addEventListener('click', handleClick);
 	}
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+	getTariff('.card', '.card__title');
+});

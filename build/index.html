@@ -99,7 +99,7 @@
 
         <div class="card__promo card__promo--blue">
           <!-- Гарантия <br> списания -->
-          <a href="#!" class="card__hint-btn" aria-label="Кнопка для отображения подсказки"></a>
+          <button class="card__hint-btn" type="button" aria-label="Кнопка для отображения подсказки"></button>
           <div class="card__hint">Для Вашего спокойствия мы гарантируем возврат оплаты в случае отсутствия списания долгов после процедуры.</div>
         </div>
 
@@ -107,9 +107,18 @@
           <ul class="card__benefits-list">
             <li class="card__benefits-item card__benefits-item_special">
               Варианты рассрочки
-              <img src="./img/vtb-icon.svg" alt="ВТБ" class="card__benefits-img">
-              <img src="./img/sber-icon.svg" alt="Сбер" class="card__benefits-img">
-              <img src="./img/alpha-icon.svg" alt="Альфа" class="card__benefits-img">
+              <picture class="card__benefits-img">
+                <source srcset="./img/vtb-icon.svg" type="image/webp">
+                <img src="./img/vtb-icon.svg" alt="ВТБ">
+              </picture>
+              <picture class="card__benefits-img">
+                <source srcset="./img/sber-icon.svg" type="image/webp">
+                <img src="./img/sber-icon.svg" alt="Сбер">
+              </picture>
+              <picture class="card__benefits-img">
+                <source srcset="./img/alpha-icon.svg" type="image/webp">
+                <img src="./img/alpha-icon.svg" alt="Альфа">
+              </picture>
             </li>
             <li class="card__benefits-item">Комфортные условия оплаты</li>
             <li class="card__benefits-item">Фиксированная сумма</li>
